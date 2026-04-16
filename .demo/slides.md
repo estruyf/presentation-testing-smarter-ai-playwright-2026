@@ -166,6 +166,13 @@ test.use({ storageState: STORAGE_STATE_APPROVER });
 **Benefits:** no login page overhead, no auth flakiness, instant persona switching
 
 ---
+layout: quote
+transition: slideLeft
+---
+
+# "AI brought the problem, AI also brings the solution"
+
+---
 layout: section
 transition: slideLeft
 ---
