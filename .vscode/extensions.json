@@ -3,7 +3,6 @@
     "ms-playwright.playwright",
     "eliostruyf.vscode-demo-time",
     "esbenp.prettier-vscode",
-    "github.copilot",
     "github.copilot-chat"
   ]
 }
