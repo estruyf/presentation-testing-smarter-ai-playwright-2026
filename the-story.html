@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>De rode lijn — Testing smarter</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px 16px;
+        background: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      }
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="100%" viewBox="0 0 680 1020" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>De rode lijn — Testing smarter session narrative</title>
+      <defs>
+        <marker
+          id="arr"
+          viewBox="0 0 10 10"
+          refX="8"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
+        >
+          <path
+            d="M2 1L8 5L2 9"
+            fill="none"
+            stroke="context-stroke"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </marker>
+      </defs>
+
+      <!-- Red thread spine -->
+      <line
+        x1="52"
+        y1="52"
+        x2="52"
+        y2="968"
+        stroke="#EF4444"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+
+      <!-- HAAK -->
+      <circle cx="52" cy="52" r="11" fill="#EF4444" />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="14"
+        font-weight="600"
+        x="78"
+        y="48"
+        fill="#111827"
+        dominant-baseline="central"
+      >
+        De haak
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="12"
+        x="78"
+        y="66"
+        fill="#6B7280"
+        dominant-baseline="central"
+      >
+        "When did you last trust your CI 100%?"
+      </text>
+
+      <!-- URGENTIE -->
+      <circle cx="52" cy="120" r="11" fill="#EF4444" />
+      <rect
+        x="78"
+        y="98"
+        width="582"
+        height="124"
+        rx="8"
+        fill="#FFF7ED"
+        stroke="#FCD34D"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="98"
+        y="122"
+        fill="#92400E"
+      >
+        Waarom nu? Drie shifts tegelijk
+      </text>
+      <rect
+        x="98"
+        y="136"
+        width="170"
+        height="54"
+        rx="6"
+        fill="#FEF3C7"
+        stroke="#F59E0B"
+        stroke-width="0.8"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="18"
+        x="183"
+        y="158"
+        text-anchor="middle"
+        dominant-baseline="central"
+      >
+        &#x1F469;&#x200D;&#x1F4BB; &#x1F3A8;
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="183"
+        y="178"
+        text-anchor="middle"
+        fill="#78350F"
+      >
+        Devs &amp; designers
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="14"
+        font-weight="600"
+        x="278"
+        y="163"
+        fill="#B45309"
+        dominant-baseline="central"
+      >
+        +
+      </text>
+      <rect
+        x="294"
+        y="136"
+        width="170"
+        height="54"
+        rx="6"
+        fill="#FDE68A"
+        stroke="#F59E0B"
+        stroke-width="1.5"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="18"
+        x="379"
+        y="158"
+        text-anchor="middle"
+        dominant-baseline="central"
+      >
+        &#x1F916;
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="379"
+        y="178"
+        text-anchor="middle"
+        fill="#78350F"
+      >
+        AI — sneller dan ooit
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="490" y="150" fill="#B45309">
+        Volume features
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="490" y="166" fill="#B45309">
+        explodeert.
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="490" y="182" fill="#B45309">
+        QA kan niet bij.
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="208" fill="#78350F">
+        E2E is geen nice-to-have meer — het is je laatste vangnet.
+      </text>
+
+      <!-- OMSLAG -->
+      <circle cx="52" cy="264" r="11" fill="#EF4444" />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="10"
+        x="30"
+        y="248"
+        fill="#EF4444"
+        text-anchor="middle"
+      >
+        spanning
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="14"
+        font-weight="600"
+        x="78"
+        y="260"
+        fill="#111827"
+        dominant-baseline="central"
+      >
+        De omslag
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="12"
+        x="78"
+        y="278"
+        fill="#6B7280"
+        dominant-baseline="central"
+      >
+        "Je schrijft niet te veel tests — je onderhoudt ze op de verkeerde manier."
+      </text>
+
+      <!-- ACT 1 -->
+      <circle cx="52" cy="330" r="11" fill="#EF4444" />
+      <rect
+        x="78"
+        y="308"
+        width="582"
+        height="84"
+        rx="8"
+        fill="#FEF2F0"
+        stroke="#F0997B"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="98"
+        y="332"
+        fill="#9B3922"
+      >
+        Act 1 — De pijn die iedereen herkent
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="352" fill="#C2522A">
+        UI changes tests breken stilletjes rode CI 400 regels ANSI handmatige fix repeat
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="370" fill="#C2522A">
+        DEMO: broken tests + gh copilot explain. Toont de limiet: 1 error, 1 paste.
+      </text>
+
+      <!-- ACT 2 -->
+      <circle cx="52" cy="436" r="11" fill="#EF4444" />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="10"
+        x="30"
+        y="416"
+        fill="#EF4444"
+        text-anchor="middle"
+      >
+        payoff
+      </text>
+      <rect
+        x="78"
+        y="414"
+        width="582"
+        height="248"
+        rx="8"
+        fill="#ECFDF5"
+        stroke="#6EE7B7"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="98"
+        y="438"
+        fill="#065F46"
+      >
+        Act 2 — Drie AI-tools, één app, één verhaal
+      </text>
+
+      <rect
+        x="98"
+        y="454"
+        width="162"
+        height="72"
+        rx="7"
+        fill="#A7F3D0"
+        stroke="#34D399"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="179"
+        y="478"
+        text-anchor="middle"
+        fill="#064E3B"
+      >
+        Planner
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="179"
+        y="496"
+        text-anchor="middle"
+        fill="#065F46"
+      >
+        Verkent de app live
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="179"
+        y="512"
+        text-anchor="middle"
+        fill="#065F46"
+      >
+        Schrijft specs/
+      </text>
+
+      <line
+        x1="260"
+        y1="490"
+        x2="282"
+        y2="490"
+        stroke="#059669"
+        stroke-width="1.5"
+        marker-end="url(#arr)"
+      />
+
+      <rect
+        x="284"
+        y="454"
+        width="162"
+        height="72"
+        rx="7"
+        fill="#A7F3D0"
+        stroke="#34D399"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="365"
+        y="478"
+        text-anchor="middle"
+        fill="#064E3B"
+      >
+        Generator
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="365"
+        y="496"
+        text-anchor="middle"
+        fill="#065F46"
+      >
+        Verifieert selectors live
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="365"
+        y="512"
+        text-anchor="middle"
+        fill="#065F46"
+      >
+        Schrijft TS tests
+      </text>
+
+      <line
+        x1="446"
+        y1="490"
+        x2="468"
+        y2="490"
+        stroke="#059669"
+        stroke-width="1.5"
+        marker-end="url(#arr)"
+      />
+
+      <rect
+        x="470"
+        y="454"
+        width="162"
+        height="72"
+        rx="7"
+        fill="#A7F3D0"
+        stroke="#34D399"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="551"
+        y="478"
+        text-anchor="middle"
+        fill="#064E3B"
+      >
+        Eerste run
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="551"
+        y="496"
+        text-anchor="middle"
+        fill="#065F46"
+      >
+        Selectors live
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        x="551"
+        y="512"
+        text-anchor="middle"
+        fill="#065F46"
+      >
+        geverifieerd ✓
+      </text>
+
+      <line
+        x1="98"
+        y1="538"
+        x2="640"
+        y2="538"
+        stroke="#6EE7B7"
+        stroke-width="0.8"
+        stroke-dasharray="5 4"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        font-weight="600"
+        x="98"
+        y="555"
+        fill="#065F46"
+      >
+        CI failure analysis
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="573" fill="#065F46">
+        gh copilot explain (1 error, terminal) vs analyze-failures.js (hele suite, PR comment met
+        root cause)
+      </text>
+
+      <line
+        x1="98"
+        y1="588"
+        x2="640"
+        y2="588"
+        stroke="#6EE7B7"
+        stroke-width="0.8"
+        stroke-dasharray="5 4"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="11"
+        font-weight="600"
+        x="98"
+        y="606"
+        fill="#065F46"
+      >
+        Zelfherstellende tests
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="624" fill="#065F46">
+        gh copilot suggest (manueel, 1 paste) vs Healer (replays DOM, patcht locators, herstart
+        groen)
+      </text>
+
+      <!-- ACT 3 -->
+      <circle cx="52" cy="706" r="11" fill="#EF4444" />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="10"
+        x="30"
+        y="682"
+        fill="#EF4444"
+        text-anchor="middle"
+      >
+        payoff
+      </text>
+      <rect
+        x="78"
+        y="684"
+        width="582"
+        height="116"
+        rx="8"
+        fill="#EFF6FF"
+        stroke="#93C5FD"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="98"
+        y="708"
+        fill="#1E3A8A"
+      >
+        Act 3 — De lus sluit zich
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="730" fill="#1D4ED8">
+        Pre-auth sessies — één keer inloggen, overal hergebruiken via storageState
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="750" fill="#1D4ED8">
+        Planner + Generator + Healer als volledige CI-lus
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="770" fill="#1D4ED8">
+        Copilot Coding Agent: schrijft feature + opent browser via MCP + verifieert eigen werk in PR
+      </text>
+
+      <!-- LANDING -->
+      <circle cx="52" cy="842" r="11" fill="#EF4444" />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="14"
+        font-weight="600"
+        x="78"
+        y="838"
+        fill="#111827"
+        dominant-baseline="central"
+      >
+        De landing
+      </text>
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="12"
+        x="78"
+        y="856"
+        fill="#374151"
+        dominant-baseline="central"
+      >
+        "AI schrijft de feature. AI test de feature. Jij reviewt de PR."
+      </text>
+
+      <!-- BOODSCHAP -->
+      <circle cx="52" cy="968" r="11" fill="#EF4444" />
+      <rect
+        x="78"
+        y="872"
+        width="582"
+        height="84"
+        rx="8"
+        fill="#F9FAFB"
+        stroke="#E5E7EB"
+        stroke-width="1"
+      />
+      <text
+        font-family="system-ui,sans-serif"
+        font-size="13"
+        font-weight="600"
+        x="98"
+        y="900"
+        fill="#111827"
+      >
+        De boodschap
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="920" fill="#6B7280">
+        Niet minder testen — minder onderhoud. Energie naar wat telt: strategie, review, vertrouwen.
+      </text>
+      <text font-family="system-ui,sans-serif" font-size="11" x="98" y="938" fill="#6B7280">
+        AI bracht het probleem. AI brengt ook de oplossing — als jij het goed opzet.
+      </text>
+    </svg>
+  </body>
+</html>

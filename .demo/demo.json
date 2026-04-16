@@ -24,8 +24,7 @@
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 1
+          "path": ".demo/slides/01-title.md"
         }
       ]
     },
@@ -36,38 +35,31 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 1
+          "path": ".demo/slides/01-title.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 2
+          "path": ".demo/slides/02-about-me.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 3
+          "path": ".demo/slides/03-trust-quote.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 4
+          "path": ".demo/slides/04-who-changes.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 5
+          "path": ".demo/slides/05-why-e2e.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 6
+          "path": ".demo/slides/06-maintenance-loop.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 7
+          "path": ".demo/slides/07-building-today.md"
         }
       ]
     },
@@ -86,13 +78,11 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 8
+          "path": ".demo/slides/08-act1.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 9
+          "path": ".demo/slides/09-demo-app.md"
         },
         {
           "action": "openWebsite",
@@ -101,8 +91,7 @@
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 10
+          "path": ".demo/slides/10-pre-auth.md"
         },
         {
           "action": "open",
@@ -161,18 +150,15 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 11
+          "path": ".demo/slides/11-ai-solution-quote.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 12
+          "path": ".demo/slides/12-act2.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 13
+          "path": ".demo/slides/13-test-agents.md"
         },
         {
           "action": "open",
@@ -222,8 +208,7 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 14
+          "path": ".demo/slides/14-planner.md"
         },
         {
           "action": "open",
@@ -275,13 +260,11 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 15
+          "path": ".demo/slides/15-generator.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 16
+          "path": ".demo/slides/16-ci-breaks.md"
         },
         {
           "action": "open",
@@ -353,8 +336,7 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 17
+          "path": ".demo/slides/17-failure-analysis.md"
         },
         {
           "action": "open",
@@ -418,13 +400,11 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 18
+          "path": ".demo/slides/18-healer.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 19
+          "path": ".demo/slides/19-act3.md"
         },
         {
           "action": "open",
@@ -440,8 +420,7 @@
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 20
+          "path": ".demo/slides/20-everything-connected.md"
         },
         {
           "action": "open",
@@ -481,18 +460,15 @@
       "moves": [
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 21
+          "path": ".demo/slides/21-coding-agent.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 22
+          "path": ".demo/slides/22-what-changed.md"
         },
         {
           "action": "openSlide",
-          "path": ".demo/slides.md",
-          "slide": 23
+          "path": ".demo/slides/23-resources.md"
         }
       ]
     },

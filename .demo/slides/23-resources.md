@@ -1,0 +1,15 @@
+---
+layout: default
+transition: slideLeft
+---
+
+
+# Resources
+
+- **This repo** — [github.com/estruyf/presentation-testing-smarter-ai-playwright](https://github.com/estruyf/presentation-testing-smarter-ai-playwright)
+- **Playwright Test Agents** — [playwright.dev/docs/test-agents](https://playwright.dev/docs/test-agents)
+- **Playwright MCP** — [playwright.dev/mcp/introduction](https://playwright.dev/mcp/introduction)
+- **GitHub Copilot Coding Agent** — [docs.github.com/copilot/coding-agent](https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent)
+- **Demo Time** — [demotime.show](https://demotime.show)
+- **EngageTime** — [engagetime.live](https://engagetime.live)
+
