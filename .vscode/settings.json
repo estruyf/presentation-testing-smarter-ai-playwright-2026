@@ -5,7 +5,6 @@
   "playwright.reuseBrowser": false,
   "playwright.showTrace": true,
   "files.exclude": {
-    ".auth": true,
     "node_modules": true,
     "test-results": true
   },
