@@ -1,0 +1,20 @@
+title: "Outro"
+description: ""
+version: 3
+timer: 50
+scenes:
+  - title: Thank you
+    description: Express gratitude to the audience and invite questions
+    moves:
+      - action: openSlide
+        path: .demo/slides/24-thank-you.md
+  - title: Post-session cleanup
+    description: Restore system settings after the session
+    moves:
+      - action: closeAll
+      - action: closeTerminal
+        terminalId: DemoTime
+      - action: closeTerminal
+        terminalId: serve
+      - action: macos.disableFocusMode
+      - action: macos.showDock

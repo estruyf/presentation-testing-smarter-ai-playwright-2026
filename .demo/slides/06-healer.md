@@ -1,8 +1,6 @@
 ---
 layout: default
-transition: slideLeft
 ---
-
 
 # The Healer
 
@@ -22,4 +20,3 @@ transition: slideLeft
 
 > If the feature was removed, the Healer marks the test `test.skip()` with a comment.
 > It won't silently delete a test.
-

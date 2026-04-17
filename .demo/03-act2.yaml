@@ -51,7 +51,7 @@ scenes:
       - action: open
         path: .github/agents/playwright-test-generator.agent.md
         focusTop: true
-  - title: Generator agent
+  - title: Generator agent run
     moves:
       - action: newCopilotChat
       - action: customCopilotChat
@@ -77,141 +77,35 @@ scenes:
       - action: executeTerminalCommand
         command: npx playwright test tests/approval/submit-document.spec.ts --project=chromium
         terminalId: DemoTime
-  - title: AI failure analysis
+  - title: Healer
     description: CI breaks. AI diagnoses root cause instead of 400 lines of logs.
     moves:
       - action: openSlide
-        path: ".demo/slides/06-ci-breaks.md"
-  - title: Run the generated tests
+        path: ".demo/slides/06-healer.md"
+  - title: Failing test
     moves:
-      - action: open
-        path: ".github/workflows/playwright.yml"
-        focusTop: true
-      - action: highlight
-        path: ".github/workflows/playwright.yml"
-        startPlaceholder: "# AI FAILURE ANALYSIS"
-        endPlaceholder: node scripts/analyze-failures.js
-        highlightBlur: 3
-        highlightOpacity: 0.35
-      - action: open
-        path: scripts/analyze-failures.js
-        focusTop: true
-      - action: highlight
-        path: scripts/analyze-failures.js
-        startPlaceholder: function buildPrompt(
-        endPlaceholder: const total = results.stats
-        highlightBlur: 2
-      - action: showInfoMessage
-        message: "First: gh copilot explain on one error. Then the full script handles
-          the whole suite."
-      - action: executeTerminalCommand
-        command: 'gh copilot explain "Playwright Error: locator(''.submit-btn'') strict
-          mode violation: resolved to 0 elements"'
-        terminalId: DemoTime
-      - action: showInfoMessage
-        message: Useful for one error in the terminal. Now watch the full script handle
-          all failures and post a PR comment.
-      - action: executeTerminalCommand
-        command: npm run test:broken -- --reporter=json 2>/dev/null; npm run analyze
-        terminalId: DemoTime
-      - action: waitForInput
-        message: Wait for analysis to complete, then press Enter to open the summary
-      - action: open
-        path: test-results/ai-summary.md
-        focusTop: true
-  - title: Act 2c — Healer agent
-    description: Healer replays the failure, inspects the live DOM, and patches the
-      test
-    icons:
-      start: wrench
-      end: check
-    moves:
-      - action: openSlide
-        path: ".demo/slides/17-failure-analysis.md"
-      - action: open
-        path: tests/approval/broken-for-healer.spec.ts
-        focusTop: true
-      - action: showInfoMessage
-        message: "The manual path: ask gh copilot suggest what to do. Then we'll automate
-          the whole thing with the Healer."
-      - action: executeTerminalCommand
-        command: gh copilot suggest -t shell "find all button text labels currently rendered
-          on the page at http://localhost:3000 using playwright CLI"
-        terminalId: DemoTime
-      - action: showInfoMessage
-        message: gh copilot suggest gets you a command to run manually. The Healer navigates
-          the live app, finds the replacement, and patches the file — no copy-pasting
-          required.
-      - action: open
-        path: ".github/agents/healer.md"
-        focusTop: true
-      - action: newCopilotChat
-      - action: agentCopilotChat
-        message: "@healer Fix the failing tests in tests/approval/broken-for-healer.spec.ts.
-          Run the tests first to see the exact failures. Then inspect the live app to
-          find the correct current selectors. Patch only the broken locators. Re-run after
-          patching to confirm everything passes."
-      - action: waitForInput
-        message: Wait for the Healer to finish patching and re-running, then press Enter
-      - action: open
-        path: tests/approval/broken-for-healer.spec.ts
-        focusTop: true
       - action: executeTerminalCommand
         command: npm run test:broken
         terminalId: DemoTime
-  - title: Act 3 — The resilient setup
-    description: Pre-auth sessions + agents + Copilot Coding Agent closing the loop
-    icons:
-      start: shield
-      end: rocket
+  - title: Healer agent
     moves:
-      - action: openSlide
-        path: ".demo/slides/18-healer.md"
-      - action: openSlide
-        path: ".demo/slides/19-act3.md"
       - action: open
-        path: playwright.config.ts
+        path: .github/agents/playwright-test-healer.agent.md
         focusTop: true
-      - action: highlight
-        path: playwright.config.ts
-        startPlaceholder: "// Setup: create auth sessions"
-        endPlaceholder: 'dependencies: ["auth-setup"],'
-        highlightBlur: 2
-      - action: openSlide
-        path: ".demo/slides/20-everything-connected.md"
-      - action: open
-        path: prompts/copilot-coding-agent.md
-        focusTop: true
-      - action: waitForInput
-        message: Switch to GitHub.com to show the Copilot Coding Agent PR in progress,
-          then press Enter
-      - action: executeTerminalCommand
-        command: npm test
-        terminalId: DemoTime
-      - action: waitForInput
-        message: Full suite complete — press Enter to open the HTML report
-      - action: executeTerminalCommand
-        command: npm run test:report
-        terminalId: DemoTime
-  - title: Wrap-up
-    description: Before/after summary, resources, and closing slide
-    icons:
-      start: star-full
-      end: heart
+  - title: Healer agent
     moves:
-      - action: openSlide
-        path: ".demo/slides/21-coding-agent.md"
-      - action: openSlide
-        path: ".demo/slides/22-what-changed.md"
-      - action: openSlide
-        path: ".demo/slides/23-resources.md"
-  - title: Post-session cleanup
-    description: Restore system settings after the session
+      - action: newCopilotChat
+      - action: customCopilotChat
+        mode: playwright-test-healer
+        message: "Fix the failing tests in tests/approval/broken-for-healer.spec.ts.
+          Run the tests first to see the exact failures. Then inspect the live app to
+          find the correct current selectors. Fix only this test file, don't change any other files. 
+          Make sure the tests pass at the end."
+  - title: Run failing test again
     moves:
-      - action: closeAll
-      - action: closeTerminal
+      - action: create
+        path: tests/approval/broken-for-healer.spec.ts
+        contentPath: .demo/code/broken-for-healer-fixed.spec.ts
+      - action: executeTerminalCommand
+        command: npm run test:broken
         terminalId: DemoTime
-      - action: closeTerminal
-        terminalId: serve
-      - action: macos.disableFocusMode
-      - action: macos.showDock

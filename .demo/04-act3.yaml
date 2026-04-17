@@ -1,0 +1,10 @@
+title: "Act 3 — The resilient setup"
+description: ""
+version: 3
+timer: 50
+scenes:
+  - title: Act 3
+    moves:
+      - action: openSlide
+        path: .demo/slides/07-act3.md
+  
