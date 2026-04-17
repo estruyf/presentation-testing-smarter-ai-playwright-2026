@@ -12,10 +12,7 @@
  */
 
 import { test as setup, expect } from "@playwright/test";
-import {
-  STORAGE_STATE_SUBMITTER,
-  STORAGE_STATE_APPROVER,
-} from "../playwright.config";
+import { STORAGE_STATE_SUBMITTER, STORAGE_STATE_APPROVER } from "../../playwright.config";
 import path from "path";
 import fs from "fs";
 
