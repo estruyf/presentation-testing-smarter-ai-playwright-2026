@@ -17,4 +17,3 @@ scenes:
       - action: closeTerminal
         terminalId: serve
       - action: macos.disableFocusMode
-      - action: macos.showDock
