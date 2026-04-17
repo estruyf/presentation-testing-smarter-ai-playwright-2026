@@ -37,6 +37,22 @@ scenes:
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
+  - title: Run authentication
+    moves:
+      - action: executeTerminalCommand
+        command: npm run test:auth
+        terminalId: DemoTime
+  - title: Show auth file
+    moves:
+      - action: open
+        path: /.auth/submitter.json
+      - action: pause
+      - action: highlight
+        path: /.auth/submitter.json
+        position: 7:10
+        highlightBlur: 2
+        highlightOpacity: 0.3
+        zoom: 2
   - title: The broken tests
     icons:
       start: bug

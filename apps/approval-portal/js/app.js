@@ -73,12 +73,12 @@ function saveDocuments(docs) {
 }
 
 function getSession() {
-  const raw = sessionStorage.getItem('approval-portal-session');
+  const raw = localStorage.getItem('approval-portal-session');
   return raw ? JSON.parse(raw) : null;
 }
 
 function saveSession(user) {
-  sessionStorage.setItem('approval-portal-session', JSON.stringify(user));
+  localStorage.setItem('approval-portal-session', JSON.stringify(user));
 }
 
 // --- Auth ---
@@ -96,7 +96,7 @@ function login(username, role) {
 }
 
 function logout() {
-  sessionStorage.removeItem('approval-portal-session');
+  localStorage.removeItem('approval-portal-session');
   currentUser = null;
   document.getElementById('login-screen').classList.remove('hidden');
   document.getElementById('app-screen').classList.add('hidden');

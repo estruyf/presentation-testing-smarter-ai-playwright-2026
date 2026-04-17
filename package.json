@@ -15,12 +15,18 @@
     "agents:init": "npx playwright init-agents --loop=vscode",
     "agents:init:claude": "npx playwright init-agents --loop=claude"
   },
-  "keywords": ["playwright", "testing", "ai", "mcp", "e2e"],
+  "keywords": [
+    "playwright",
+    "testing",
+    "ai",
+    "mcp",
+    "e2e"
+  ],
   "author": "Elio Struyf",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.50.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.19.17",
     "serve": "^14.2.0"
   }
 }
