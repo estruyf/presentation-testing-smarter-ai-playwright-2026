@@ -7,7 +7,7 @@ scenes:
     description: Planner explores the app and writes a human-readable test plan
     moves:
       - action: openSlide
-        path: ".demo/slides/04-ai-solution-quote.md"
+        path: ".demo/slides/03.01-ai-solution-quote.md"
   - title: Init
     moves:
       - action: executeTerminalCommand
@@ -41,7 +41,7 @@ scenes:
     description: Generator turns the Markdown plan into executable TypeScript tests
     moves:
       - action: openSlide
-        path: ".demo/slides/05-generator.md"
+        path: ".demo/slides/03.02-generator.md"
   - title: Generator agent
     moves:
       - action: insert
@@ -81,7 +81,7 @@ scenes:
     description: CI breaks. AI diagnoses root cause instead of 400 lines of logs.
     moves:
       - action: openSlide
-        path: ".demo/slides/06-healer.md"
+        path: ".demo/slides/03.03-healer.md"
   - title: Failing test
     moves:
       - action: executeTerminalCommand

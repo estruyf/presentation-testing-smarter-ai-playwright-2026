@@ -29,6 +29,12 @@ layout: quote
 # "When did you last look at a green CI run and **actually trust** it?"
 
 ---
+layout: intro
+---
+
+# Testing is more important than ever
+
+---
 layout: default
 ---
 
@@ -53,34 +59,12 @@ GitHub Copilot, Coding Agents, vibe coding tools. Writing production code. Right
 layout: default
 ---
 
-# Your first line of defence: good `data-testid` attributes
-
-CSS classes change. Text labels get redesigned. A `data-testid` has **one job** — connecting your app to your test suite.
-
-But only if you name them well:
-
-| ❌ Avoid | ✅ Prefer |
-|---|---|
-| `data-testid="btn1"` | `data-testid="submit-document-button"` |
-| `data-testid="input2"` | `data-testid="document-title-input"` |
-| `data-testid="badge"` | `data-testid="approval-status-badge"` |
-
-**Be descriptive. Include context. Make the intent obvious** — to humans reading the test *and* to AI generating or healing it.
-
-> Good test IDs are the cheapest investment you can make in test stability. This is a great task for AI to help you.
-
----
-layout: default
----
-
 # Why E2E testing is more important than ever
 
 Three things have changed — all at once.
 
 1. **AI ships code at a pace humans can't review fully** — Copilot Coding Agent can open a PR in minutes. Your test suite is the only systematic check.
-
 2. **The pain isn't just broken tests** — it's writing tests at all when the app is changing this fast. By the time you finish writing a test, the feature has moved.
-
 3. **Feature volume has outpaced QA capacity** — teams are shipping more with fewer people. Manual testing can't cover the surface area anymore.
 
 ---
@@ -92,21 +76,40 @@ layout: section
 # **The question is whether you can keep up with AI.**
 
 ---
+layout: intro
+---
+
+# But it is slow, costs a lot, and is hard to maintain
+
+---
 layout: default
 ---
 
-# The maintenance loop
+# Why writing tests can be slow
 
-Every team I talk to is stuck in the same cycle.
+1. Understanding the flow(s)
+2. Translating actions into code
+3. Finding reliable selectors in complex UIs
+4. Debugging flaky tests
+5. Maintenance — every UI change is a manual fix
 
-1. **UI changes** — a designer renames a button, a component gets refactored or moved
-2. **Tests silently break** — locators stop resolving, nothing tells you
-3. **CI turns red** — you get 400 lines of output and no context
-4. **Manual fixes** — someone digs in, updates the selector, pushes a patch
-5. **Repeat** — two weeks later, another UI change, same loop
+---
+layout: intro
+---
 
-> You're not spending too much time writing tests.
-> You're spending too much time **maintaining** them after someone changed a label.
+# 🤖 + 🐢 = 🐆
+
+---
+layout: intro
+---
+
+# It depends...
+
+---
+layout: intro
+---
+
+# The app and its complexity
 
 ---
 layout: default
@@ -122,5 +125,3 @@ A complete, AI-assisted E2E testing setup — built around one real app.
 - ✅ **Pre-authenticated sessions** — authenticate once, reuse everywhere
 - ✅ **Playwright Test Agents** — Planner, Generator, Healer
 - ✅ **AI failure analysis** — root cause in plain language, not 400 log lines
-- ✅ **GitHub Copilot Coding Agent** — writes code and tests it in a real browser
-

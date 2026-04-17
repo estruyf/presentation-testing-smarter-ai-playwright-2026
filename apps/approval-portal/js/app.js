@@ -274,13 +274,13 @@ function openReview(docId) {
         <textarea id="review-comment" placeholder="Add a comment (optional)..." rows="2" data-testid="review-comment"></textarea>
       </div>
       <div class="action-buttons">
-        <button class="btn-ghost" onclick="closeModal('review-modal')">Cancel</button>
+        <button class="btn-ghost" data-testid="btn-cancel-review" onclick="closeModal('review-modal')">Cancel</button>
         <button class="btn-danger" onclick="reviewDoc('${doc.id}', 'rejected')" data-testid="btn-reject">Reject</button>
         <button class="btn-success" onclick="reviewDoc('${doc.id}', 'approved')" data-testid="btn-approve">Approve</button>
       </div>
     `;
   } else {
-    actionsEl.innerHTML = `<button class="btn-ghost" onclick="closeModal('review-modal')">Close</button>`;
+    actionsEl.innerHTML = `<button class="btn-ghost" data-testid="btn-cancel-review" onclick="closeModal('review-modal')">Close</button>`;
   }
 
   document.getElementById('review-modal').classList.remove('hidden');
@@ -314,6 +314,7 @@ function showToast(message, type = 'info') {
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
   toast.setAttribute('role', 'alert');
+  toast.setAttribute('data-testid', 'toast-message');
   toast.textContent = message;
   container.appendChild(toast);
   setTimeout(() => toast.classList.add('visible'), 10);

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approval Portal</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen">
+    <div class="login-card">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="8" fill="#0078d4"/>
+          <path d="M10 20h20M20 10v20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>Approval Portal</span>
+      </div>
+      <h1>Sign in</h1>
+      <p class="subtitle">Choose your account to continue</p>
+      <div class="user-tiles">
+        <button class="user-tile" data-user="alex" data-role="submitter" data-testid="user-tile-submitter" onclick="login('alex', 'submitter')">
+          <div class="avatar" style="background:#0078d4">A</div>
+          <div class="user-info">
+            <span class="user-name">Alex Chen</span>
+            <span class="user-role">Submitter</span>
+          </div>
+        </button>
+        <button class="user-tile" data-user="morgan" data-role="approver" data-testid="user-tile-approver" onclick="login('morgan', 'approver')">
+          <div class="avatar" style="background:#107c10">M</div>
+          <div class="user-info">
+            <span class="user-name">Morgan Lee</span>
+            <span class="user-role">Approver</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app-screen" class="screen hidden">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="8" fill="#0078d4"/>
+          <path d="M10 20h20M20 10v20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>Approval Portal</span>
+      </div>
+      <div class="nav-user">
+        <span id="nav-user-name" data-testid="nav-user-name"></span>
+        <span id="nav-user-badge" class="role-badge" data-testid="nav-user-badge"></span>
+        <button class="btn-ghost" data-testid="btn-sign-out" onclick="logout()">Sign out</button>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 id="page-title" data-testid="page-title">Dashboard</h1>
+          <p id="page-subtitle" class="page-subtitle" data-testid="page-subtitle"></p>
+        </div>
+        <button id="btn-submit" class="btn-primary hidden" data-testid="btn-submit-document" onclick="showSubmitForm()">
+          + Submit document
+        </button>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="stats-bar">
+        <div class="stat-card" data-testid="stat-pending">
+          <span class="stat-value" id="stat-pending">0</span>
+          <span class="stat-label">Pending</span>
+        </div>
+        <div class="stat-card" data-testid="stat-approved">
+          <span class="stat-value" id="stat-approved">0</span>
+          <span class="stat-label">Approved</span>
+        </div>
+        <div class="stat-card" data-testid="stat-rejected">
+          <span class="stat-value" id="stat-rejected">0</span>
+          <span class="stat-label">Rejected</span>
+        </div>
+      </div>
+
+      <!-- Document list -->
+      <div class="card">
+        <div class="card-header">
+          <div class="filter-tabs">
+            <button class="tab active" data-filter="all" data-testid="filter-tab-all" onclick="setFilter('all')">All</button>
+            <button class="tab" data-filter="pending" data-testid="filter-tab-pending" onclick="setFilter('pending')">Pending</button>
+            <button class="tab" data-filter="approved" data-testid="filter-tab-approved" onclick="setFilter('approved')">Approved</button>
+            <button class="tab" data-filter="rejected" data-testid="filter-tab-rejected" onclick="setFilter('rejected')">Rejected</button>
+          </div>
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search documents..." oninput="renderDocuments()" data-testid="search-input" />
+          </div>
+        </div>
+        <div id="document-list" class="document-list" data-testid="document-list"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Submit Document Modal -->
+  <div id="submit-modal" class="modal hidden" data-testid="submit-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" onclick="closeModal('submit-modal')"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modal-title">Submit document for approval</h2>
+        <button class="btn-icon" data-testid="btn-close-submit-modal" onclick="closeModal('submit-modal')" aria-label="Close">&#x2715;</button>
+      </div>
+      <form id="submit-form" onsubmit="submitDocument(event)">
+        <div class="form-group">
+          <label for="doc-title">Document title <span class="required">*</span></label>
+          <input type="text" id="doc-title" name="title" placeholder="e.g. Q4 Budget Report" required data-testid="doc-title" />
+        </div>
+        <div class="form-group">
+          <label for="doc-category">Category <span class="required">*</span></label>
+          <select id="doc-category" name="category" required data-testid="doc-category">
+            <option value="">Select a category</option>
+            <option value="finance">Finance</option>
+            <option value="hr">HR</option>
+            <option value="legal">Legal</option>
+            <option value="operations">Operations</option>
+            <option value="strategy">Strategy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="doc-description">Description</label>
+          <textarea id="doc-description" name="description" placeholder="Brief description of the document..." rows="3" data-testid="doc-description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="doc-priority">Priority</label>
+          <div class="radio-group" id="doc-priority">
+            <label class="radio-label">
+              <input type="radio" name="priority" value="low" data-testid="priority-low" /> Low
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="priority" value="normal" data-testid="priority-normal" checked /> Normal
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="priority" value="high" data-testid="priority-high" /> High
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ghost" data-testid="btn-cancel-submit" onclick="closeModal('submit-modal')">Cancel</button>
+          <button type="submit" class="btn-primary" data-testid="btn-submit-form">Submit for approval</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div id="review-modal" class="modal hidden" data-testid="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+    <div class="modal-backdrop" onclick="closeModal('review-modal')"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="review-modal-title">Review document</h2>
+        <button class="btn-icon" data-testid="btn-close-review-modal" onclick="closeModal('review-modal')" aria-label="Close">&#x2715;</button>
+      </div>
+      <div id="review-doc-details" class="review-details"></div>
+      <div id="review-actions" class="modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div id="toast-container" class="toast-container" data-testid="toast-container"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,10 +1,14 @@
-title: "Act 3 — The resilient setup"
+title: "Act 3 — Your new role"
 description: ""
 version: 3
 timer: 50
 scenes:
-  - title: Act 3
+  - title: Your role and AIs
     moves:
       - action: openSlide
-        path: .demo/slides/07-act3.md
+        path: .demo/slides/04.01-act3.md
+  - title: Tips
+    moves:
+      - action: openSlide
+        path: .demo/slides/04.02-tips.md
   

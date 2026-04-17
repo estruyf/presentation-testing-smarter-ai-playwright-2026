@@ -1,12 +1,12 @@
-title: "Act 1 — The maintenance loop"
-description: ""
+title: Act 1 — The maintenance loop
+description: ''
 version: 3
 timer: 50
 scenes:
   - title: The app concept
     moves:
       - action: openSlide
-        path: ".demo/slides/02-act1.md"
+        path: .demo/slides/02.01-act1.md
   - title: The app
     moves:
       - action: openWebsite
@@ -15,7 +15,7 @@ scenes:
   - title: Auth
     moves:
       - action: openSlide
-        path: ".demo/slides/03-auth.md"
+        path: .demo/slides/02.02-auth.md
   - title: Auth code
     moves:
       - action: open
@@ -25,7 +25,7 @@ scenes:
       - action: highlight
         path: tests/auth/auth.setup.ts
         startPlaceholder: authenticate as submitter (Alex Chen)
-        endPlaceholder: "});"
+        endPlaceholder: '});'
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
@@ -33,7 +33,7 @@ scenes:
       - action: highlight
         path: tests/auth/auth.setup.ts
         startPlaceholder: authenticate as approver (Morgan Lee)
-        endPlaceholder: "});"
+        endPlaceholder: '});'
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
@@ -49,14 +49,11 @@ scenes:
       - action: pause
       - action: highlight
         path: /.auth/submitter.json
-        position: 7:10
+        position: '7:10'
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
   - title: The broken tests
-    icons:
-      start: bug
-      end: error
     moves:
       - action: open
         path: tests/approval/broken-for-healer.spec.ts
@@ -69,19 +66,65 @@ scenes:
         highlightBlur: 3
         highlightOpacity: 0.3
         zoom: 2
-  - title: Running the tests
     icons:
       start: bug
       end: error
+  - title: Running the tests
     moves:
       - action: executeTerminalCommand
         command: npm run test:broken
         terminalId: DemoTime
   - title: What exactly went wrong?
+    moves:
+      - action: executeTerminalCommand
+        command: copilot -p "Explain what went wrong with the \"test-results/results.json\" test run output."
+        terminalId: DemoTime
     icons:
       start: question
       end: search
+  - id: scene-mo2yj8cx-kfwl
+    title: AI ID management
     moves:
-      - action: executeTerminalCommand
-        command: 'copilot -p "Explain what went wrong with the \"test-results/results.json\" test run output."'
-        terminalId: DemoTime
+      - action: openSlide
+        path: .demo/slides/02.03-ai-id-management.md
+  - title: Show the HTML
+    moves:
+      - action: open
+        path: apps/approval-portal/index.html
+      - action: pause
+      - action: highlight
+        path: apps/approval-portal/index.html
+        position: 23:36
+        highlightBlur: 3
+        highlightOpacity: 0.3
+        zoom: 2
+  - title: Generate test IDs
+    moves:
+      - action: newCopilotChat
+      - action: customCopilotChat
+        mode: playwright-test-healer
+        message: "Analyse the website in `./apps/approval-portal` and check which components are important
+          for end-to-end testing. Add `data-testid` attributes to those components.
+          Add all the retrieved and created test IDs in a TypeScript constant file under `apps/approval-portal/src/constants/testIds.ts`. 
+          That way, it's easier to reuse in E2E tests later."
+  - title: Show the HTML
+    moves:
+      - action: create
+        path: apps/approval-portal/index.html
+        contentPath: .demo/code/index.testids.html
+      - action: open
+        path: apps/approval-portal/index.html
+      - action: pause
+      - action: highlight
+        path: apps/approval-portal/index.html
+        position: 23:36
+        highlightBlur: 3
+        highlightOpacity: 0.3
+        zoom: 2
+  - title: Show the constants file
+    moves:
+      - action: create
+        path: apps/approval-portal/src/constants/testIds.ts
+        contentPath: .demo/code/testIds.ts
+      - action: open
+        path: apps/approval-portal/src/constants/testIds.ts

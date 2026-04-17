@@ -7,7 +7,7 @@ scenes:
     description: Express gratitude to the audience and invite questions
     moves:
       - action: openSlide
-        path: .demo/slides/24-thank-you.md
+        path: .demo/slides/05.02-thank-you.md
   - title: Post-session cleanup
     description: Restore system settings after the session
     moves:
