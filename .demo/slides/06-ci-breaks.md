@@ -1,8 +1,6 @@
 ---
 layout: section
-transition: slideLeft
 ---
-
 
 # When CI breaks
 

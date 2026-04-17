@@ -3,7 +3,6 @@ layout: default
 transition: slideLeft
 ---
 
-
 # The Generator
 
 *"Turn this spec into passing tests."*

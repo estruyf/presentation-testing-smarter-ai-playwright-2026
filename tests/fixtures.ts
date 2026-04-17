@@ -66,18 +66,20 @@ export class SubmitForm {
     description?: string;
     priority?: "low" | "normal" | "high";
   }) {
-    await this.page.getByTestId("doc-title").fill(opts.title);
-    await this.page.getByTestId("doc-category").selectOption(opts.category);
+    const modal = this.page.getByRole("dialog", { name: "Submit document for approval" });
+    await modal.getByTestId("doc-title").fill(opts.title);
+    await modal.getByTestId("doc-category").selectOption(opts.category);
     if (opts.description) {
-      await this.page.getByTestId("doc-description").fill(opts.description);
+      await modal.getByTestId("doc-description").fill(opts.description);
     }
     if (opts.priority && opts.priority !== "normal") {
-      await this.page.locator(`input[name="priority"][value="${opts.priority}"]`).check();
+      await modal.locator(`input[name="priority"][value="${opts.priority}"]`).check();
     }
   }
 
   async submit() {
-    await this.page.getByTestId("btn-submit-form").click();
+    const modal = this.page.getByRole("dialog", { name: "Submit document for approval" });
+    await modal.getByTestId("btn-submit-form").click();
   }
 }
 

@@ -12,11 +12,12 @@ test.describe("document submission", () => {
     await page.goto("/");
     await submitForm.open();
 
+    const modal = page.getByRole("dialog", { name: "Submit document for approval" });
     await expect(
       page.getByRole("heading", { name: "Submit document for approval" })
     ).toBeVisible();
-    await expect(page.getByTestId("doc-title")).toBeVisible();
-    await expect(page.getByTestId("doc-category")).toBeVisible();
+    await expect(modal.getByTestId("doc-title")).toBeVisible();
+    await expect(modal.getByTestId("doc-category")).toBeVisible();
   });
 
   test("submitter can submit a new document", async ({
@@ -57,9 +58,10 @@ test.describe("document submission", () => {
     await page.goto("/");
     await submitForm.open();
 
+    const modal = page.getByRole("dialog", { name: "Submit document for approval" });
     // Try submitting without a title
-    await page.getByTestId("btn-submit-form").click();
-    await expect(page.getByTestId("doc-title")).toBeFocused();
+    await modal.getByTestId("btn-submit-form").click();
+    await expect(modal.getByTestId("doc-title")).toBeFocused();
   });
 
   test("submitted document shows as pending", async ({ page, submitForm, dashboard }) => {

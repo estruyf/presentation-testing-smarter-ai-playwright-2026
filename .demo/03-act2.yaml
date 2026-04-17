@@ -37,48 +37,53 @@ scenes:
       - action: open
         path: specs/approval-workflow.md
         focusTop: true
-  - title: "Act 2a — Playwright Test Agents: Generator"
+  - title: Generator
     description: Generator turns the Markdown plan into executable TypeScript tests
-    icons:
-      start: code
-      end: pass
     moves:
       - action: openSlide
-        path: ".demo/slides/14-planner.md"
+        path: ".demo/slides/05-generator.md"
+  - title: Generator agent
+    moves:
+      - action: insert
+        path: .github/agents/playwright-test-generator.agent.md
+        contentPath: .demo/code/generator.specifics.md
+        position: end
       - action: open
-        path: ".github/agents/generator.md"
+        path: .github/agents/playwright-test-generator.agent.md
         focusTop: true
+  - title: Generator agent
+    moves:
       - action: newCopilotChat
-      - action: agentCopilotChat
-        message: "@generator Generate Playwright tests from specs/approval-workflow.md.
+      - action: customCopilotChat
+        mode: playwright-test-generator
+        message: "Generate Playwright tests from specs/approval-workflow.md.
           Use tests/seed.spec.ts as the style reference. Import fixtures from tests/fixtures.ts.
           For the approver persona tests, use storageState: STORAGE_STATE_APPROVER. Verify
-          every selector live before writing it. Run each generated file after creating
-          it to confirm it passes."
-      - action: waitForInput
-        message: Wait for the Generator to finish writing and running the tests, then
-          press Enter
+          every selector live before writing it."
+  - title: Generator output
+    moves:
       - action: open
         path: tests/approval/submit-document.spec.ts
         focusTop: true
+      - action: pause
       - action: highlight
         path: tests/approval/submit-document.spec.ts
-        startPlaceholder: import { test, expect } from "../fixtures";
-        endPlaceholder: test.describe("document submission",
+        position: 11:20
         highlightBlur: 2
+        highlightOpacity: 0.3
+        zoom: 2
+  - title: Run the generated tests
+    moves:
       - action: executeTerminalCommand
         command: npx playwright test tests/approval/submit-document.spec.ts --project=chromium
         terminalId: DemoTime
-  - title: Act 2b — AI failure analysis
+  - title: AI failure analysis
     description: CI breaks. AI diagnoses root cause instead of 400 lines of logs.
-    icons:
-      start: beaker
-      end: comment-discussion
     moves:
       - action: openSlide
-        path: ".demo/slides/15-generator.md"
-      - action: openSlide
-        path: ".demo/slides/16-ci-breaks.md"
+        path: ".demo/slides/06-ci-breaks.md"
+  - title: Run the generated tests
+    moves:
       - action: open
         path: ".github/workflows/playwright.yml"
         focusTop: true
