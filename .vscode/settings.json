@@ -5,8 +5,7 @@
   "playwright.reuseBrowser": false,
   "playwright.showTrace": true,
   "files.exclude": {
-    "node_modules": true,
-    "test-results": true
+    "node_modules": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
