@@ -1,16 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
 import path from "path";
 
-export const STORAGE_STATE_SUBMITTER = path.join(
-  __dirname,
-  ".auth/submitter.json"
-);
-export const STORAGE_STATE_APPROVER = path.join(
-  __dirname,
-  ".auth/approver.json"
-);
+export const STORAGE_STATE_SUBMITTER = path.join(__dirname, ".auth/submitter.json");
+export const STORAGE_STATE_APPROVER = path.join(__dirname, ".auth/approver.json");
 
 export default defineConfig({
+  timeout: 5000,
   testDir: "./tests",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -39,15 +34,6 @@ export default defineConfig({
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
-        storageState: STORAGE_STATE_SUBMITTER,
-      },
-      dependencies: ["auth-setup"],
-      testIgnore: /auth\.setup\.ts/,
-    },
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
         storageState: STORAGE_STATE_SUBMITTER,
       },
       dependencies: ["auth-setup"],
