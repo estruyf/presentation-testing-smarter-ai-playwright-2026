@@ -1,0 +1,21 @@
+title: Introduction
+description:
+version: 3
+timer: 50
+scenes:
+  - title: Pre-session setup check
+    description: Verify the environment before the session starts
+    moves:
+      - action: macos.enableFocusMode
+      - action: macos.hideDock
+      - action: executeTerminalCommand
+        command: npm run serve
+        terminalId: serve
+        autoExecute: true
+      - action: openSlide
+        path: ".demo/slides/01-intro.md"
+  - title: Introduction
+    description: Title, about me, the question, the problem, session overview
+    moves:
+      - action: openSlide
+        path: ".demo/slides/01-intro.md"

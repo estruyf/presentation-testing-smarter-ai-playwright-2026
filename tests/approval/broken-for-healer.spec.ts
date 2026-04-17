@@ -1,7 +1,7 @@
 /**
  * DEMO: Broken test for the Healer agent demo
  *
- * This test was written against the old version of the approval portal
+ * This test was written against the "old" version of the approval portal
  * where the submit button was labelled "New request" instead of
  * "+ Submit document".
  *
