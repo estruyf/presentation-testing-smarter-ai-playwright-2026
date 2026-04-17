@@ -53,6 +53,26 @@ GitHub Copilot, Coding Agents, vibe coding tools. Writing production code. Right
 layout: default
 ---
 
+# Your first line of defence: good `data-testid` attributes
+
+CSS classes change. Text labels get redesigned. A `data-testid` has **one job** — connecting your app to your test suite.
+
+But only if you name them well:
+
+| ❌ Avoid | ✅ Prefer |
+|---|---|
+| `data-testid="btn1"` | `data-testid="submit-document-button"` |
+| `data-testid="input2"` | `data-testid="document-title-input"` |
+| `data-testid="badge"` | `data-testid="approval-status-badge"` |
+
+**Be descriptive. Include context. Make the intent obvious** — to humans reading the test *and* to AI generating or healing it.
+
+> Good test IDs are the cheapest investment you can make in test stability. This is a great task for AI to help you.
+
+---
+layout: default
+---
+
 # Why E2E testing is more important than ever
 
 Three things have changed — all at once.
