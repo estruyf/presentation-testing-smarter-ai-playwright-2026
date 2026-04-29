@@ -1,5 +1,5 @@
 title: Introduction
-description:
+description: null
 version: 3
 timer: 50
 scenes:
@@ -13,9 +13,20 @@ scenes:
         terminalId: serve
         autoExecute: true
       - action: openSlide
-        path: ".demo/slides/01-intro.md"
+        path: .demo/slides/01-intro.md
   - title: Introduction
-    description: Title, about me, the question, the problem, session overview
+    description: Title
     moves:
       - action: openSlide
-        path: ".demo/slides/01-intro.md"
+        path: .demo/slides/01.01-intro.md
+  - id: demo-moka1aes-2cum
+    title: About me
+    moves:
+      - action: openSlide
+        path: .demo/slides/01.02-about-me.md
+  - id: demo-moka2xhl-12wb
+    title: The questions
+    description: The question, the problem, session overview
+    moves:
+      - action: openSlide
+        path: .demo/slides/01.03-overview.md
