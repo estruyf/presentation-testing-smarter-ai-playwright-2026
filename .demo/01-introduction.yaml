@@ -1,5 +1,5 @@
 title: Introduction
-description: null
+description: ""
 version: 3
 timer: 50
 scenes:
@@ -18,7 +18,7 @@ scenes:
     description: Title
     moves:
       - action: openSlide
-        path: .demo/slides/01.01-intro.md
+        path: .demo/slides/01.01-intro-ecs.md
   - id: demo-moka1aes-2cum
     title: About me
     moves:
