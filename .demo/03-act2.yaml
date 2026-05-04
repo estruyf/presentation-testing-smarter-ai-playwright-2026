@@ -1,5 +1,5 @@
-title: "Act 2 — Playwright Test Agents"
-description: ""
+title: Act 2 — Playwright Test Agents
+description: ''
 version: 3
 timer: 50
 scenes:
@@ -7,7 +7,7 @@ scenes:
     description: Planner explores the app and writes a human-readable test plan
     moves:
       - action: openSlide
-        path: ".demo/slides/03.01-ai-solution-quote.md"
+        path: .demo/slides/03.01-ai-solution-quote.md
   - title: Init
     moves:
       - action: executeTerminalCommand
@@ -21,17 +21,14 @@ scenes:
   - title: Planner file
     moves:
       - action: open
-        path: ".github/agents/playwright-test-planner.agent.md"
+        path: .github/agents/playwright-test-planner.agent.md
         focusTop: true
   - title: Run the planner
     moves:
       - action: newCopilotChat
       - action: customCopilotChat
         mode: playwright-test-planner
-        message: "Generate a full test plan for the document submission workflow.
-          Use tests/seed.spec.ts as the seed. Cover both the submitter persona (Alex Chen)
-          and the approver persona (Morgan Lee). Include happy paths, validation errors,
-          and edge cases. Save the output to specs/approval-workflow.md"
+        message: Generate a full test plan for the document submission workflow. Use tests/seed.spec.ts as the seed. Cover both the submitter persona (Alex Chen) and the approver persona (Morgan Lee). Include happy paths, validation errors, and edge cases. Save the output to specs/approval-workflow.md
   - title: Open the specs
     moves:
       - action: open
@@ -41,7 +38,7 @@ scenes:
     description: Generator turns the Markdown plan into executable TypeScript tests
     moves:
       - action: openSlide
-        path: ".demo/slides/03.02-generator.md"
+        path: .demo/slides/03.02-generator.md
   - title: Generator agent
     moves:
       - action: insert
@@ -56,10 +53,7 @@ scenes:
       - action: newCopilotChat
       - action: customCopilotChat
         mode: playwright-test-generator
-        message: "Generate Playwright tests from specs/approval-workflow.md.
-          Use tests/seed.spec.ts as the style reference. Import fixtures from tests/fixtures.ts.
-          For the approver persona tests, use storageState: STORAGE_STATE_APPROVER. Verify
-          every selector live before writing it."
+        message: 'Generate Playwright tests from specs/approval-workflow.md. Use tests/seed.spec.ts as the style reference. Import fixtures from tests/fixtures.ts. For the approver persona tests, use storageState: STORAGE_STATE_APPROVER. Verify every selector live before writing it.'
   - title: Generator output
     moves:
       - action: open
@@ -68,7 +62,7 @@ scenes:
       - action: pause
       - action: highlight
         path: tests/approval/submit-document.spec.ts
-        position: 11:20
+        position: '11:20'
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
@@ -81,13 +75,13 @@ scenes:
     description: CI breaks. AI diagnoses root cause instead of 400 lines of logs.
     moves:
       - action: openSlide
-        path: ".demo/slides/03.03-healer.md"
+        path: .demo/slides/03.03-healer.md
   - title: Failing test
     moves:
       - action: executeTerminalCommand
         command: npm run test:broken
         terminalId: DemoTime
-  - title: Healer agent
+  - title: Healer agent file
     moves:
       - action: open
         path: .github/agents/playwright-test-healer.agent.md
@@ -97,10 +91,7 @@ scenes:
       - action: newCopilotChat
       - action: customCopilotChat
         mode: playwright-test-healer
-        message: "Fix the failing tests in tests/approval/broken-for-healer.spec.ts.
-          Run the tests first to see the exact failures. Then inspect the live app to
-          find the correct current selectors. Fix only this test file, don't change any other files. 
-          Make sure the tests pass at the end."
+        message: Fix the failing tests in tests/approval/broken-for-healer.spec.ts. Run the tests first to see the exact failures. Then inspect the live app to find the correct current selectors. Fix only this test file, don't change any other files.  Make sure the tests pass at the end.
   - title: Run failing test again
     moves:
       - action: create
