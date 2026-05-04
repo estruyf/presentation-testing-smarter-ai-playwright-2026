@@ -53,6 +53,10 @@ scenes:
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
+  - title: The tests
+    moves:
+      - action: openSlide
+        path: .demo/slides/02.03-test.md
   - title: The broken tests
     moves:
       - action: open
@@ -61,7 +65,7 @@ scenes:
       - action: pause
       - action: highlight
         path: tests/approval/broken-for-healer.spec.ts
-        startPlaceholder: 'await page.getByRole("button", { name: "New request" })'
+        startPlaceholder: ' await page.goto("/");'
         endPlaceholder: await expect(page.locator(".submit-modal")).toBeVisible();
         highlightBlur: 3
         highlightOpacity: 0.3
@@ -82,11 +86,10 @@ scenes:
     icons:
       start: question
       end: search
-  - id: scene-mo2yj8cx-kfwl
-    title: AI ID management
+  - title: AI ID management
     moves:
       - action: openSlide
-        path: .demo/slides/02.03-ai-id-management.md
+        path: .demo/slides/02.04-ai-id-management.md
   - title: Show the HTML
     moves:
       - action: open
