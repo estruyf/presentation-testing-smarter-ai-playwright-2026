@@ -6,7 +6,7 @@ scenes:
   - title: The app concept
     moves:
       - action: openSlide
-        path: .demo/slides/02.01-act1.md
+        path: .demo/slides/02.01-act2.md
   - title: The app
     moves:
       - action: openWebsite
@@ -103,6 +103,8 @@ scenes:
       end: search
   - title: AI ID management
     moves:
+      - action: setTheme
+        theme: Demo Time Dark
       - action: openSlide
         path: .demo/slides/02.04-ai-id-management.md
   - title: Show the HTML

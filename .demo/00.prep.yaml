@@ -1,0 +1,29 @@
+title: Prep
+description: ''
+version: 3
+timer: 50
+engageTime:
+  sessionId: bt8rsn
+scenes:
+  - title: Pre-session setup check
+    description: Verify the environment before the session starts
+    moves:
+      - action: backupSettings
+      - action: macos.enableFocusMode
+      - action: macos.hideDock
+      - action: executeTerminalCommand
+        command: npm run serve
+        terminalId: serve
+        autoExecute: true
+      - action: startEngageTimePoll
+        pollId: p6bpfh
+      - action: startEngageTimePoll
+        pollId: ywnb9w
+      - action: startEngageTimePoll
+        pollId: k9hysl
+      - action: startEngageTimePoll
+        pollId: nnemzp
+      - action: startEngageTimePoll
+        pollId: 20a8w0
+      - action: startEngageTimePoll
+        pollId: 1x0vz0
