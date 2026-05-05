@@ -1,7 +1,9 @@
 title: Introduction
-description: ""
+description: ''
 version: 3
 timer: 50
+engageTime:
+  sessionId: bt8rsn
 scenes:
   - title: Pre-session setup check
     description: Verify the environment before the session starts
@@ -12,8 +14,18 @@ scenes:
         command: npm run serve
         terminalId: serve
         autoExecute: true
-      - action: openSlide
-        path: .demo/slides/01-intro.md
+      - action: startEngageTimePoll
+        pollId: p6bpfh
+      - action: startEngageTimePoll
+        pollId: ywnb9w
+      - action: startEngageTimePoll
+        pollId: k9hysl
+      - action: startEngageTimePoll
+        pollId: nnemzp
+      - action: startEngageTimePoll
+        pollId: 20a8w0
+      - action: startEngageTimePoll
+        pollId: 1x0vz0
   - title: Introduction
     description: Title
     moves:
@@ -24,6 +36,20 @@ scenes:
     moves:
       - action: openSlide
         path: .demo/slides/01.02-about-me.md
+  - id: scene-mosk58ka-ho2u
+    title: Question 1
+    moves:
+      - action: showEngageTimePoll
+        pollId: p6bpfh
+        closeOnOpen: false
+        startOnOpen: false
+  - id: demo-mosko41z-u04w
+    title: Question 2
+    moves:
+      - action: showEngageTimePoll
+        closeOnOpen: false
+        startOnOpen: false
+        pollId: 1x0vz0
   - id: demo-moka2xhl-12wb
     title: The questions
     description: The question, the problem, session overview

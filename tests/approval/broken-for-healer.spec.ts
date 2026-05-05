@@ -24,7 +24,6 @@ test.describe("submit flow (broken — for healer demo)", () => {
   test("submitter can open the new request form", async ({ page }) => {
     await page.goto("/");
 
-    // OLD locator — button was renamed in the latest UI update
     await page.getByRole("button", { name: "New request" }).click();
 
     await expect(page.locator(".submit-modal")).toBeVisible();
@@ -34,7 +33,6 @@ test.describe("submit flow (broken — for healer demo)", () => {
     await page.goto("/");
     await page.getByRole("button", { name: "New request" }).click();
 
-    // OLD selectors from a previous version of the form
     await page.locator("#doc-name").fill("Broken Test Document");
     await page.locator("#doc-type").selectOption("finance");
     await page.locator(".submit-btn").click();

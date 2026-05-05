@@ -12,12 +12,24 @@ scenes:
       - action: openWebsite
         url: http://localhost:3000
         openInVSCode: true
+  - title: Question 3
+    moves:
+      - action: showEngageTimePoll
+        pollId: 20a8w0
+        closeOnOpen: false
+        startOnOpen: false
+  - title: The tests
+    moves:
+      - action: openSlide
+        path: .demo/slides/02.02-test.md
   - title: Auth
     moves:
       - action: openSlide
-        path: .demo/slides/02.02-auth.md
+        path: .demo/slides/02.03-auth.md
   - title: Auth code
     moves:
+      - action: setTheme
+        theme: Demo Time Light (no italic)
       - action: open
         path: tests/auth/auth.setup.ts
         focusTop: true
@@ -49,14 +61,10 @@ scenes:
       - action: pause
       - action: highlight
         path: /.auth/submitter.json
-        position: '7:10'
+        position: '6:10'
         highlightBlur: 2
         highlightOpacity: 0.3
         zoom: 2
-  - title: The tests
-    moves:
-      - action: openSlide
-        path: .demo/slides/02.03-test.md
   - title: The broken tests
     moves:
       - action: open
@@ -67,6 +75,13 @@ scenes:
         path: tests/approval/broken-for-healer.spec.ts
         startPlaceholder: ' await page.goto("/");'
         endPlaceholder: await expect(page.locator(".submit-modal")).toBeVisible();
+        highlightBlur: 3
+        highlightOpacity: 0.3
+        zoom: 2
+      - action: pause
+      - action: highlight
+        path: tests/approval/broken-for-healer.spec.ts
+        position: '34:42'
         highlightBlur: 3
         highlightOpacity: 0.3
         zoom: 2
@@ -97,7 +112,7 @@ scenes:
       - action: pause
       - action: highlight
         path: apps/approval-portal/index.html
-        position: 23:36
+        position: '23:36'
         highlightBlur: 3
         highlightOpacity: 0.3
         zoom: 2
@@ -106,10 +121,7 @@ scenes:
       - action: newCopilotChat
       - action: customCopilotChat
         mode: playwright-test-healer
-        message: "Analyse the website in `./apps/approval-portal` and check which components are important
-          for end-to-end testing. Add `data-testid` attributes to those components.
-          Add all the retrieved and created test IDs in a TypeScript constant file under `apps/approval-portal/src/constants/testIds.ts`. 
-          That way, it's easier to reuse in E2E tests later."
+        message: Analyse the website in `./apps/approval-portal` and check which components are important for end-to-end testing. Add `data-testid` attributes to those components. Add all the retrieved and created test IDs in a TypeScript constant file under `apps/approval-portal/src/constants/testIds.ts`.  That way, it's easier to reuse in E2E tests later.
   - title: Show the HTML
     moves:
       - action: create
@@ -120,7 +132,7 @@ scenes:
       - action: pause
       - action: highlight
         path: apps/approval-portal/index.html
-        position: 23:36
+        position: '23:36'
         highlightBlur: 3
         highlightOpacity: 0.3
         zoom: 2
