@@ -105,10 +105,14 @@ scenes:
     moves:
       - action: setTheme
         theme: Demo Time Dark
+      - action: executeVSCodeCommand
+        command: workbench.action.closePanel
       - action: openSlide
         path: .demo/slides/02.04-ai-id-management.md
   - title: Show the HTML
     moves:
+      - action: setTheme
+        theme: Demo Time Light (no italic)
       - action: open
         path: apps/approval-portal/index.html
       - action: pause

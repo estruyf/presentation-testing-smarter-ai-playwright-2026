@@ -9,5 +9,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.integrated.fontSize": 16
+  "terminal.integrated.fontSize": 16,
+  "workbench.colorTheme": "Demo Time Light (no italic)"
 }
