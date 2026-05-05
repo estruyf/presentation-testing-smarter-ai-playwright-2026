@@ -2,12 +2,16 @@ title: Act 3 — Playwright Test Agents
 description: ''
 version: 3
 timer: 50
+engageTime:
+  sessionId: bt8rsn
 scenes:
   - title: Planner
     description: Planner explores the app and writes a human-readable test plan
     moves:
       - action: setTheme
         theme: Demo Time Dark
+      - action: executeVSCodeCommand
+        command: workbench.action.closePanel
       - action: openSlide
         path: .demo/slides/03.01-ai-solution-quote.md
   - title: Init
@@ -17,6 +21,8 @@ scenes:
         terminalId: DemoTime
   - title: Seed file
     moves:
+      - action: setTheme
+        theme: Demo Time Light (no italic)
       - action: open
         path: tests/seed.spec.ts
         focusTop: true
@@ -39,6 +45,9 @@ scenes:
   - title: Generator
     description: Generator turns the Markdown plan into executable TypeScript tests
     moves:
+      - action: closeCopilotChat
+      - action: executeVSCodeCommand
+        command: workbench.action.closePanel
       - action: openSlide
         path: .demo/slides/03.02-generator.md
   - title: Generator agent
@@ -47,6 +56,8 @@ scenes:
         path: .github/agents/playwright-test-generator.agent.md
         contentPath: .demo/code/generator.specifics.md
         position: end
+      - action: waitForTimeout
+        timeout: 200
       - action: open
         path: .github/agents/playwright-test-generator.agent.md
         focusTop: true
@@ -58,6 +69,8 @@ scenes:
         message: 'Generate Playwright tests from specs/approval-workflow.md. Use tests/seed.spec.ts as the style reference. Import fixtures from tests/fixtures.ts. For the approver persona tests, use storageState: STORAGE_STATE_APPROVER. Verify every selector live before writing it.'
   - title: Generator output
     moves:
+      - action: setTheme
+        theme: Demo Time Light (no italic)
       - action: open
         path: tests/approval/submit-document.spec.ts
         focusTop: true
@@ -73,13 +86,25 @@ scenes:
       - action: executeTerminalCommand
         command: npx playwright test tests/approval/submit-document.spec.ts --project=chromium
         terminalId: DemoTime
+  - id: scene-mosmbwmf-5sj3
+    title: Question 6
+    moves:
+      - action: showEngageTimePoll
+        pollId: k9hysl
   - title: Healer
     description: CI breaks. AI diagnoses root cause instead of 400 lines of logs.
     moves:
+      - action: setTheme
+        theme: Demo Time Dark (no italic)
+      - action: closeCopilotChat
+      - action: executeVSCodeCommand
+        command: workbench.action.closePanel
       - action: openSlide
         path: .demo/slides/03.03-healer.md
   - title: Failing test
     moves:
+      - action: setTheme
+        theme: Demo Time Light (no italic)
       - action: executeTerminalCommand
         command: npm run test:broken
         terminalId: DemoTime
@@ -102,3 +127,12 @@ scenes:
       - action: executeTerminalCommand
         command: npm run test:broken
         terminalId: DemoTime
+  - id: scene-mosmpyap-gfxl
+    title: Open changes
+    moves:
+      - action: open
+        path: tests/approval/broken-for-healer.spec.ts
+      - action: waitForTimeout
+        timeout: 500
+      - action: executeVSCodeCommand
+        command: git.openChange

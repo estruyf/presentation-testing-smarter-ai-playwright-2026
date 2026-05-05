@@ -24,20 +24,21 @@ test.describe("submit flow (broken — for healer demo)", () => {
   test("submitter can open the new request form", async ({ page }) => {
     await page.goto("/");
 
-    // Updated locator — button was renamed to "+ Submit document"
-    await page.getByRole("button", { name: "+ Submit document" }).click();
+    // Updated locator — with the new data-testid attribute
+    await page.getByTestId("btn-submit-document").click();
 
-    await expect(page.locator("#submit-modal")).toBeVisible();
+    await expect(page.getByTestId("submit-modal")).toBeVisible();
   });
 
   test("submitter can fill and send a request", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "+ Submit document" }).click();
+    await page.getByTestId("btn-submit-document").click();
 
     // Updated selectors to match current form structure
-    await page.getByRole('textbox', { name: 'Document title *' }).fill("Broken Test Document");
-    await page.getByTestId("doc-category").selectOption("finance");
-    await page.getByTestId("btn-submit-form").click();
+    const modal = page.getByTestId("submit-modal");
+    await modal.getByTestId("doc-title").fill("Broken Test Document");
+    await modal.getByTestId("doc-category").selectOption("finance");
+    await modal.getByTestId("btn-submit-form").click();
 
     await expect(
       page.getByTestId("document-row").filter({ hasText: "Broken Test Document" })
