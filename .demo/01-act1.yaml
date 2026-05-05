@@ -29,6 +29,13 @@ scenes:
         closeOnOpen: false
         startOnOpen: false
         pollId: 1x0vz0
+  - id: demo-mosko41z-u04q
+    title: Question 3
+    moves:
+      - action: showEngageTimePoll
+        closeOnOpen: false
+        startOnOpen: false
+        pollId: nnemzp
   - id: demo-moka2xhl-12wb
     title: The questions
     description: The question, the problem, session overview

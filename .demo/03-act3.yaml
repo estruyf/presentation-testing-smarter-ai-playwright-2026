@@ -1,4 +1,4 @@
-title: Act 2 — Playwright Test Agents
+title: Act 3 — Playwright Test Agents
 description: ''
 version: 3
 timer: 50
@@ -6,6 +6,8 @@ scenes:
   - title: Planner
     description: Planner explores the app and writes a human-readable test plan
     moves:
+      - action: setTheme
+        theme: Demo Time Dark
       - action: openSlide
         path: .demo/slides/03.01-ai-solution-quote.md
   - title: Init

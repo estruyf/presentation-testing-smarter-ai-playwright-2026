@@ -1,4 +1,4 @@
-title: Act 1 — The maintenance loop
+title: Act 2 — The maintenance loop
 description: ''
 version: 3
 timer: 50
@@ -12,7 +12,7 @@ scenes:
       - action: openWebsite
         url: http://localhost:3000
         openInVSCode: true
-  - title: Question 3
+  - title: Question 4
     moves:
       - action: showEngageTimePoll
         pollId: 20a8w0
@@ -93,6 +93,12 @@ scenes:
       - action: executeTerminalCommand
         command: npm run test:broken
         terminalId: DemoTime
+  - title: Question 5
+    moves:
+      - action: showEngageTimePoll
+        pollId: ywnb9w
+        closeOnOpen: false
+        startOnOpen: false
   - title: What exactly went wrong?
     moves:
       - action: executeTerminalCommand
