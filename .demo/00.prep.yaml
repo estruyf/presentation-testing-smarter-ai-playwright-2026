@@ -27,3 +27,5 @@ scenes:
         pollId: 20a8w0
       - action: startEngageTimePoll
         pollId: 1x0vz0
+      - action: setTheme
+        theme: Demo Time Dark
