@@ -1,5 +1,5 @@
-title: "Outro"
-description: ""
+title: Outro
+description: ''
 version: 3
 timer: 50
 scenes:
@@ -17,3 +17,5 @@ scenes:
       - action: closeTerminal
         terminalId: serve
       - action: macos.disableFocusMode
+      - action: macos.disableCaffeine
+      - action: macos.showMenubar
