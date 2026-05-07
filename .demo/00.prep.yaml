@@ -10,7 +10,9 @@ scenes:
     moves:
       - action: backupSettings
       - action: macos.enableFocusMode
+        disabled: true
       - action: macos.enableCaffeine
+        disabled: false
       - action: macos.hideMenubar
       - action: executeTerminalCommand
         command: npm run serve

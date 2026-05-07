@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "playwright.reuseBrowser": false,
+  "playwright.showTrace": true,
+  "files.exclude": {
+    "node_modules": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.fontSize": 16,
+  "workbench.colorTheme": "Demo Time Dark"
+}
