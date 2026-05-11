@@ -15,9 +15,7 @@ scenes:
   - title: Question 4
     moves:
       - action: showEngageTimePoll
-        pollId: 20a8w0
-        closeOnOpen: false
-        startOnOpen: false
+        pollId: dq15a2
   - title: The tests
     moves:
       - action: openSlide
@@ -96,9 +94,7 @@ scenes:
   - title: Question 5
     moves:
       - action: showEngageTimePoll
-        pollId: ywnb9w
-        closeOnOpen: false
-        startOnOpen: false
+        pollId: mvm76w
   - title: What exactly went wrong?
     moves:
       - action: executeTerminalCommand

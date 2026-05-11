@@ -90,7 +90,7 @@ scenes:
     title: Question 6
     moves:
       - action: showEngageTimePoll
-        pollId: k9hysl
+        pollId: hcozgc
   - title: Healer
     description: CI breaks. AI diagnoses root cause instead of 400 lines of logs.
     moves:

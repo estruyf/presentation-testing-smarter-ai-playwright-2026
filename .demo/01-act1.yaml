@@ -3,13 +3,21 @@ description: ''
 version: 3
 timer: 50
 engageTime:
-  sessionId: bt8rsn
+  sessionId: 21333k
 scenes:
+  - id: scene-mp17pq3t-s9pt
+    title: Show Poll QR
+    moves:
+      - action: showQR
+        url: https://engagetime.live/session/21333k
+        topText: Let me get to know you
+        logo: https://engagetime.live/engagetime.svg
+        title: I got some questions for you
   - title: Introduction
     description: Title
     moves:
       - action: openSlide
-        path: .demo/slides/01.01-intro-ecs.md
+        path: .demo/slides/01.01-intro.md
   - id: demo-moka1aes-2cum
     title: About me
     moves:
@@ -19,7 +27,7 @@ scenes:
     title: Question 1
     moves:
       - action: showEngageTimePoll
-        pollId: p6bpfh
+        pollId: 3gks9u
         closeOnOpen: false
         startOnOpen: false
   - id: demo-mosko41z-u04w
@@ -28,14 +36,14 @@ scenes:
       - action: showEngageTimePoll
         closeOnOpen: false
         startOnOpen: false
-        pollId: 1x0vz0
+        pollId: rcbg5z
   - id: demo-mosko41z-u04q
     title: Question 3
     moves:
       - action: showEngageTimePoll
         closeOnOpen: false
         startOnOpen: false
-        pollId: nnemzp
+        pollId: l0zksl
   - id: demo-moka2xhl-12wb
     title: The questions
     description: The question, the problem, session overview
