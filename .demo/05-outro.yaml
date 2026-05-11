@@ -8,14 +8,10 @@ scenes:
     moves:
       - action: openSlide
         path: .demo/slides/05.02-thank-you.md
-  - title: Post-session cleanup
-    description: Restore system settings after the session
+  - id: scene-mp18ha61-ihgo
+    title: Repository QR
     moves:
-      - action: closeAll
-      - action: closeTerminal
-        terminalId: DemoTime
-      - action: closeTerminal
-        terminalId: serve
-      - action: macos.disableFocusMode
-      - action: macos.disableCaffeine
-      - action: macos.showMenubar
+      - action: showQR
+        url: https://github.com/estruyf/presentation-testing-smarter-ai-playwright-2026
+        topText: Try it out yourself
+        title: Link to the slides and demos

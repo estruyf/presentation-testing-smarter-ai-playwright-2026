@@ -1,0 +1,16 @@
+title: Cleaning
+description: ''
+version: 3
+timer: 50
+scenes:
+  - title: Post-session cleanup
+    description: Restore system settings after the session
+    moves:
+      - action: closeAll
+      - action: closeTerminal
+        terminalId: DemoTime
+      - action: closeTerminal
+        terminalId: serve
+      - action: macos.disableFocusMode
+      - action: macos.disableCaffeine
+      - action: macos.showMenubar
