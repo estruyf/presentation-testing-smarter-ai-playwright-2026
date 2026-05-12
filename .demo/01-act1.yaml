@@ -50,3 +50,8 @@ scenes:
     moves:
       - action: openSlide
         path: .demo/slides/01.03-overview.md
+  - title: The app
+    moves:
+      - action: openWebsite
+        url: http://localhost:3000
+        openInVSCode: true

@@ -7,11 +7,6 @@ scenes:
     moves:
       - action: openSlide
         path: .demo/slides/02.01-act2.md
-  - title: The app
-    moves:
-      - action: openWebsite
-        url: http://localhost:3000
-        openInVSCode: true
   - title: Question 4
     moves:
       - action: showEngageTimePoll
@@ -54,6 +49,8 @@ scenes:
         terminalId: DemoTime
   - title: Show auth file
     moves:
+      - action: executeVSCodeCommand
+        command: workbench.action.closePanel
       - action: open
         path: /.auth/submitter.json
       - action: pause
@@ -129,7 +126,10 @@ scenes:
       - action: newCopilotChat
       - action: customCopilotChat
         mode: playwright-test-healer
-        message: Analyse the website in `./apps/approval-portal` and check which components are important for end-to-end testing. Add `data-testid` attributes to those components. Add all the retrieved and created test IDs in a TypeScript constant file under `apps/approval-portal/src/constants/testIds.ts`.  That way, it's easier to reuse in E2E tests later.
+      - action: typeText
+        content: Analyse the website in `./apps/approval-portal` and check which components are important for end-to-end testing. Add `data-testid` attributes to those components. Add all the retrieved and created test IDs in a TypeScript constant file under `apps/approval-portal/src/constants/testIds.ts`.  That way, it's easier to reuse in E2E tests later.
+        insertTypingSpeed: 2
+      - action: pressEnter
   - title: Show the HTML
     moves:
       - action: create

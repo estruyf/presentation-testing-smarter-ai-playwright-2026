@@ -10,5 +10,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "terminal.integrated.fontSize": 16,
-  "workbench.colorTheme": "Demo Time Dark"
+  "workbench.colorTheme": "Demo Time Dark",
+  "demoTime.highlightBorderColor": "transparent"
 }
