@@ -3,7 +3,7 @@ description: ''
 version: 3
 timer: 50
 engageTime:
-  sessionId: bt8rsn
+  sessionId: 21333k
 scenes:
   - title: Planner
     description: Planner explores the app and writes a human-readable test plan
