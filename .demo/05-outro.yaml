@@ -15,3 +15,13 @@ scenes:
         url: https://github.com/estruyf/presentation-testing-smarter-ai-playwright-2026
         topText: Try it out yourself
         title: Link to the slides and demos
+  - id: demo-mowwslyo-59wj
+    title: Demo Time QR
+    moves:
+      - action: showQR
+        url: https://demotime.show
+        label: Get started with Demo Time
+        logo: https://demotime.show/_astro/demotime-bg.Cj2R9BCN_Z1HYzg2.svg
+        title: Get started with Demo Time
+        topText: Scan to open
+        description: Never stress about live coding again. Present straight from Visual Studio Code.
