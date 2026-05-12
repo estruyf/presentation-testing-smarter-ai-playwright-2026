@@ -14,3 +14,9 @@ scenes:
       - action: macos.disableFocusMode
       - action: macos.disableCaffeine
       - action: macos.showMenubar
+      - action: executeVSCodeCommand
+        command: workbench.action.activityBarLocation.default
+      - action: executeVSCodeCommand
+        command: showCustomTitleBar
+      - action: executeVSCodeCommand
+        command: workbench.action.toggleFullScreen

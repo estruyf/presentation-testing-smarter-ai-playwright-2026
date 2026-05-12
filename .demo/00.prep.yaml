@@ -32,3 +32,9 @@ scenes:
         pollId: mvm76w
       - action: setTheme
         theme: Demo Time Dark
+      - action: executeVSCodeCommand
+        command: workbench.action.toggleFullScreen
+      - action: executeVSCodeCommand
+        command: workbench.action.activityBarLocation.hide
+      - action: executeVSCodeCommand
+        command: hideCustomTitleBarInFullScreen
